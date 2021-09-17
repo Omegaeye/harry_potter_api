@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::API
   before_action :doorkeeper_authorize!
 
-  def doorkeeper_authorize!(*scopes)
-    @_doorkeeper_scopes = scopes.presence || Doorkeeper.configuration.default_scopes
-    return if Doorkeeper.configuration.skip_authorization
-    unless valid_doorkeeper_token?
+  def doorkeeper_authorize!
+    access_token = doorkeeper_token.token if doorkeeper_token.present?
+    token = Doorkeeper::AccessToken.find_by(token: access_token )
+
+    unless token.present?
       doorkeeper_render_error
     end
   end
