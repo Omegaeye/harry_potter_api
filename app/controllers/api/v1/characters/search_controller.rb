@@ -2,6 +2,7 @@ module Api
   module V1
     module Characters
       class SearchController < ApplicationController
+
         def index
           json = { 
             data: {

@@ -25,9 +25,13 @@ gem "faker", "~> 2.7"
 gem "faraday", "~> 1.3"
 gem "fast_jsonapi"
 gem 'figaro'
+gem 'dry-monads'
+gem "dry-matcher", "~> 0.8.3"
+gem "devise", "~> 4.8"
+gem "doorkeeper", "~> 5.5"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
